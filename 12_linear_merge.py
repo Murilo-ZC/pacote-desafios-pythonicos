@@ -11,7 +11,11 @@ A sua solução deve rodar em tempo linear, ou seja, deve fazer uma
 
 def linear_merge(list1, list2):
     # +++ SUA SOLUÇÃO +++
-    return
+    saida = []
+    saida.extend(list1)
+    saida.extend(list2)
+    saida.sort()
+    return saida
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---

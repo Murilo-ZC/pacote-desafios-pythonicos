@@ -10,9 +10,15 @@ Exemplo: 'abcde', a metade da frente é 'abc' e a de trás é 'de'.
 Finalmente, dadas duas strings a e b, retorne uma string na forma:
 a-frente + b-frente + a-trás + b-trás
 """
+def monta_string(s):
+    deslocamento_string = len(s)//2 + len(s) % 2
+    return s[:deslocamento_string], s[deslocamento_string:]
+
 def front_back(a, b):
     # +++ SUA SOLUÇÃO +++
-    return
+    a_ = monta_string(a)
+    b_ = monta_string(b)
+    return "%s%s%s%s" % (a_[0], b_[0], a_[1], b_[1])
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---

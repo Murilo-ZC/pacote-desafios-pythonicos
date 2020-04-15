@@ -56,7 +56,31 @@ import sys
 
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
+from operator import itemgetter
 
+
+def print_words(filename):
+    arquivo = open(filename, "r")
+    saida = {}
+    for line in arquivo:
+        for item in line.split():
+            if item.lower() in saida:
+                saida[item] += 1
+            else:
+                saida[item.lower()] = 1
+    return saida
+
+
+def print_top(filename):
+    arquivo = open(filename, "r")
+    saida = {}
+    for line in arquivo:
+        for item in line.split():
+            if item.lower() in saida:
+                saida[item] += 1
+            else:
+                saida[item.lower()] = 1
+    return sorted(list(saida.items()), key=itemgetter(1))
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
 # parêtros do programa.

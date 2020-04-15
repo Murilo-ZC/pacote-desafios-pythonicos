@@ -47,13 +47,32 @@ def mimic_dict(filename):
   """Retorna o dicionario imitador mapeando cada palavra para a lista de
   palavras subsequentes."""
     # +++ SUA SOLUÇÃO +++
-  return
+  arquivo = open(filename, "r")
+  saida = {}
+  for line in arquivo:
+    data = line.split()
+    for item in data:
+      if item.lower() in saida:
+        if data.index(item) < len(data)-1 and data[data.index(item)+1] not in saida[item]:
+          saida[item].append(data[data.index(item)+1] )
+      else:
+        if data.index(item) < len(data) - 1:
+          saida[item.lower()] = [data[data.index(item)+1] ]
+        else:
+          saida[item.lower()] = []
+  return saida
+
 
 
 def print_mimic(mimic_dict, word):
   """Dado o dicionario imitador e a palavra inicial, imprime texto de 200 palavras."""
     # +++ SUA SOLUÇÃO +++
-  return
+  sentence = [word]
+  output = ""
+  for i in range(200):
+    sentence.append(mimic_dict[sentence[-1]])
+    output+= sentence[i] + " "
+  return output
 
 
 # Chama mimic_dict() e print_mimic()
